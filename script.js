@@ -20,8 +20,10 @@ switch (opcion) {
         let remeraFormaPago = ConsultarFormaPago();
         let remeraMonto = CalcularMonto(precioremera,remeraCantidad);
         if (remeraFormaPago == 1 || remeraFormaPago == 2) {
+            alert("EL MONTO FINAL A ABONAR ES: " + "$" + remeraMonto);
             console.log("EL MONTO FINAL A ABONAR ES: " + "$" + remeraMonto);
-        }
+            alert("MUCHAS GRACIAS POR ELEJIRNOS");
+    }
         else if (remeraFormaPago == 3) {
             let montoPorCuota = calcularCuota(remeraMonto)
             console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota)
@@ -37,8 +39,10 @@ switch (opcion) {
         let pantalonFormaPago = ConsultarFormaPago();
         let pantalonMonto = CalcularMonto(preciopantalon,pantalonCantidad);
         if (pantalonFormaPago == 1 || pantalonFormaPago == 2) {
+            alert("EL MONTO FINAL A ABONAR ES: " + "$" + pantalonMonto);
             console.log("EL MONTO FINAL A ABONAR ES: " + "$" + pantalonMonto);
-        }
+            alert("MUCHAS GRACIAS POR ELEJIRNOS");
+    }
         else if (pantalonFormaPago == 3) {
             let montoPorCuota = calcularCuota(pantalonMonto)
             console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota)
@@ -54,11 +58,16 @@ switch (opcion) {
             let zapatillaFormaPago = ConsultarFormaPago();
             let zapatillaMonto = CalcularMonto(zapatillaPrecio,zapatillaCantidad);
             if (zapatillaFormaPago == 1 || zapatillaFormaPago == 2) {
+                alert("EL MONTO FINAL A ABONAR ES: " + "$" + zapatillaMonto);
                 console.log("EL MONTO FINAL A ABONAR ES: " + "$" + zapatillaMonto);
+                alert("MUCHAS GRACIAS POR ELEJIRNOS");
             }
             else if (zapatillaFormaPago == 3) {
-                let montoPorCuota = calcularCuota(zapatillaMonto)
-                console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota)
+                let montoPorCuota = calcularCuota(zapatillaMonto);
+                alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+                console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+                alert("MUCHAS GRACIAS POR ELEJIRNOS");
+
             }
             break;  
             
@@ -129,18 +138,21 @@ function CalcularMonto (precio,cantidad) {
 function calcularCuota (monto) {
     let cuotas = prompt("ELIJA CANTIDAD DE CUOTAS: 1 CUOTA SIN INTERES | 3 CUOTAS SIN INTERES | 6 COUTAS CON 10% DE RECARGO");
     if (cuotas == 1) {
-        console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 1 CUOTA SIN INTERES")
-        console.log("EL MONTO FINAL ABONAR ES: " + "$" + monto)
+        console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 1 CUOTA SIN INTERES");
+        alert("EL MONTO FINAL A ABONAR ES: " + "$" + monto);
+        console.log("EL MONTO FINAL A ABONAR ES: " + "$" + monto);
         montoCuota = monto
     }
     else if (cuotas == 3) {
-        console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 3 CUOTAS SIN INTERES")
-        console.log("EL MONTO FINAL ABONAR ES: " + "$" + monto)
+        console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 3 CUOTAS SIN INTERES");
+        alert("EL MONTO FINAL A ABONAR ES: " + "$" + monto);
+        console.log("EL MONTO FINAL A ABONAR ES: " + "$" + monto);
         montoCuota = monto/3
     }
     else if (cuotas == 6) {
-        console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 6 CUOTAS SIN INTERES CON 10% DE RECARGO")
-        console.log("EL MONTO FINAL A ABONAR ES: " + "$" + monto*1.10)
+        console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 6 CUOTAS SIN INTERES CON 10% DE RECARGO");
+        alert("EL MONTO FINAL A ABONAR ES: " + "$" + monto*1.10);
+        console.log("EL MONTO FINAL A ABONAR ES: " + "$" + monto*1.10);
         montoCuota = (monto*1.10)/6
     }
     return montoCuota
