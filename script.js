@@ -1,4 +1,4 @@
-let opcion = prompt("ELIJA ARTICULO: 1-REMERA | 2-PANTALON | 3-ZAPATILLA");
+let opcion = prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) REMERA \n 2) PANTALON \n 3) ZAPATILLA");
 
 if (opcion == 1) {
     opcion = "REMERA";
@@ -15,7 +15,7 @@ switch (opcion) {
         let precioremera = 3500
         let remeraColor = ConsultarColor();
         let remeraTalle = ConsultarTalle();
-        let remeraCantidad = ConsultarCantidad();
+        let remeraCantidad = ConsultarCantidad(opcion);
         console.log("USTED ELIJIO COMPRAR: " + remeraCantidad + " " + opcion + " COLOR: " + remeraColor + " TALLE: " + remeraTalle);
         let remeraFormaPago = ConsultarFormaPago();
         let remeraMonto = CalcularMonto(precioremera,remeraCantidad);
@@ -26,15 +26,17 @@ switch (opcion) {
     }
         else if (remeraFormaPago == 3) {
             let montoPorCuota = calcularCuota(remeraMonto)
-            console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota)
-        }
+            alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+            console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+            alert("MUCHAS GRACIAS POR ELEJIRNOS");
+    }
         break;
 
     case "PANTALON":
         let preciopantalon = 8200
         let pantalonColor = ConsultarColor();
         let pantalonTalle = ConsultarTalle();
-        let pantalonCantidad = ConsultarCantidad();
+        let pantalonCantidad = ConsultarCantidad(opcion);
         console.log("USTED ELIJIO COMPRAR: " + pantalonCantidad + " " + opcion + " COLOR: " + pantalonColor + " TALLE: " + pantalonTalle);
         let pantalonFormaPago = ConsultarFormaPago();
         let pantalonMonto = CalcularMonto(preciopantalon,pantalonCantidad);
@@ -45,15 +47,17 @@ switch (opcion) {
     }
         else if (pantalonFormaPago == 3) {
             let montoPorCuota = calcularCuota(pantalonMonto)
-            console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota)
-        }
+            alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+            console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+            alert("MUCHAS GRACIAS POR ELEJIRNOS");
+    }
         break;
 
     case "ZAPATILLA":
             let zapatillaPrecio = 15000
             let zapatillaColor = ConsultarColor();
             let zapatillaTalle = ConsultarTalle();
-            let zapatillaCantidad = ConsultarCantidad();
+            let zapatillaCantidad = ConsultarCantidad(opcion);
             console.log("USTED ELIJIO COMPRAR: " + zapatillaCantidad + " " + opcion + " COLOR: " + zapatillaColor + " TALLE: " + zapatillaTalle);
             let zapatillaFormaPago = ConsultarFormaPago();
             let zapatillaMonto = CalcularMonto(zapatillaPrecio,zapatillaCantidad);
@@ -83,7 +87,7 @@ function ConsultarTalle () {
 }
 
 function ConsultarColor () {
-    let color = prompt("ELIJA COLOR: 1-NEGRO | 2-AZUL | 3-ROJO | 4-ROSA | 5-BLANCO")
+    let color = parseInt(prompt("INGRESE EL NUMERO DEL COLOR QUE DESEA COMPRAR: \n1) NEGRO \n 2) AZUL \n 3) ROJO \n 4) ROSA \n 5) BLANCO"))
 
         if (color == 1) {
             color = "NEGRO";
@@ -107,18 +111,18 @@ function ConsultarColor () {
     return color;
 }
 
-function ConsultarCantidad () {
-    let cant = prompt("INGRESE CANTIDAD DESEADA:");
-    return cant.toUpperCase();
+function ConsultarCantidad (articulo) {
+    let cant = parseInt(prompt("INGRESE LA CANTIDAD DE " + articulo + " DESEADA:"));
+    return cant;
 }
 
 function ConsultarFormaPago () {
-    let forma = prompt("ELIJA FORMA DE PAGO: 1-EFECTIVO | 2-DEBITO | 3-CREDITO")
+    let forma = prompt("INGRESE EL NUMERO DE LA FORMA DE PAGO DESEADA: \n 1) EFECTIVO \n 2) DEBITO \n 3) CREDITO");
     if (forma == 1) {
         console.log("USTED DECIDIO ABONAR EN EFECTIVO");
     }
     else if (forma == 2){
-        console.log("USTED DECIDIO ABONAR CON TARJETA DE DEBITO");
+        console.log("USTED DECIDIO ABONAR CON TARJETA DE DEBITO");1
     }
     else if (forma == 3){
        
@@ -136,7 +140,7 @@ function CalcularMonto (precio,cantidad) {
 }
 
 function calcularCuota (monto) {
-    let cuotas = prompt("ELIJA CANTIDAD DE CUOTAS: 1 CUOTA SIN INTERES | 3 CUOTAS SIN INTERES | 6 COUTAS CON 10% DE RECARGO");
+    let cuotas = prompt("ELIJA CANTIDAD DE CUOTAS: \n 1 CUOTA SIN INTERES \n 3 CUOTAS SIN INTERES \n 6 COUTAS CON 10% DE RECARGO");
     if (cuotas == 1) {
         console.log("USTED ELIJIO ABONAR CON TARJETA DE CREDITO EN 1 CUOTA SIN INTERES");
         alert("EL MONTO FINAL A ABONAR ES: " + "$" + monto);
@@ -154,6 +158,11 @@ function calcularCuota (monto) {
         alert("EL MONTO FINAL A ABONAR ES: " + "$" + monto*1.10);
         console.log("EL MONTO FINAL A ABONAR ES: " + "$" + monto*1.10);
         montoCuota = (monto*1.10)/6
+    }
+    else {
+        alert("NO OFRECEMOS ESA CANTIDAD DE CUOTAS, INTENTE NUEVAMENTE");
+        calcularCuota();
+
     }
     return montoCuota
 }
