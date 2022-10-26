@@ -1,85 +1,96 @@
-let opcion = prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) REMERA \n 2) PANTALON \n 3) ZAPATILLA");
+let articuloElegido = prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) REMERA \n 2) PANTALON \n 3) ZAPATILLA");
 
-if (opcion == 1) {
-    opcion = "REMERA";
+if (articuloElegido == 1) {
+    articuloElegido = "REMERA";
 }
-else if (opcion == 2) {
-    opcion = "PANTALON";
+else if (articuloElegido == 2) {
+    articuloElegido = "PANTALON";
 }
-else if (opcion == 3) {
-    opcion = "ZAPATILLA";
+else if (articuloElegido == 3) {
+    articuloElegido = "ZAPATILLA";
 }
 
-switch (opcion) {
-    case "REMERA":
-        let precioremera = 3500
-        let remeraColor = ConsultarColor();
-        let remeraTalle = ConsultarTalle();
-        let remeraCantidad = ConsultarCantidad(opcion);
-        console.log("USTED ELIJIO COMPRAR: " + remeraCantidad + " " + opcion + " COLOR: " + remeraColor + " TALLE: " + remeraTalle);
-        let remeraFormaPago = ConsultarFormaPago();
-        let remeraMonto = CalcularMonto(precioremera,remeraCantidad);
-        if (remeraFormaPago == 1 || remeraFormaPago == 2) {
-            alert("EL MONTO FINAL A ABONAR ES: " + "$" + remeraMonto);
-            console.log("EL MONTO FINAL A ABONAR ES: " + "$" + remeraMonto);
-            alert("MUCHAS GRACIAS POR ELEJIRNOS");
-    }
-        else if (remeraFormaPago == 3) {
-            let montoPorCuota = calcularCuota(remeraMonto)
-            alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
-            console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
-            alert("MUCHAS GRACIAS POR ELEJIRNOS");
-    }
-        break;
-
-    case "PANTALON":
-        let preciopantalon = 8200
-        let pantalonColor = ConsultarColor();
-        let pantalonTalle = ConsultarTalle();
-        let pantalonCantidad = ConsultarCantidad(opcion);
-        console.log("USTED ELIJIO COMPRAR: " + pantalonCantidad + " " + opcion + " COLOR: " + pantalonColor + " TALLE: " + pantalonTalle);
-        let pantalonFormaPago = ConsultarFormaPago();
-        let pantalonMonto = CalcularMonto(preciopantalon,pantalonCantidad);
-        if (pantalonFormaPago == 1 || pantalonFormaPago == 2) {
-            alert("EL MONTO FINAL A ABONAR ES: " + "$" + pantalonMonto);
-            console.log("EL MONTO FINAL A ABONAR ES: " + "$" + pantalonMonto);
-            alert("MUCHAS GRACIAS POR ELEJIRNOS");
-    }
-        else if (pantalonFormaPago == 3) {
-            let montoPorCuota = calcularCuota(pantalonMonto)
-            alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
-            console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
-            alert("MUCHAS GRACIAS POR ELEJIRNOS");
-    }
-        break;
-
-    case "ZAPATILLA":
-            let zapatillaPrecio = 15000
-            let zapatillaColor = ConsultarColor();
-            let zapatillaTalle = ConsultarTalle();
-            let zapatillaCantidad = ConsultarCantidad(opcion);
-            console.log("USTED ELIJIO COMPRAR: " + zapatillaCantidad + " " + opcion + " COLOR: " + zapatillaColor + " TALLE: " + zapatillaTalle);
-            let zapatillaFormaPago = ConsultarFormaPago();
-            let zapatillaMonto = CalcularMonto(zapatillaPrecio,zapatillaCantidad);
-            if (zapatillaFormaPago == 1 || zapatillaFormaPago == 2) {
-                alert("EL MONTO FINAL A ABONAR ES: " + "$" + zapatillaMonto);
-                console.log("EL MONTO FINAL A ABONAR ES: " + "$" + zapatillaMonto);
+do {
+    switch (articuloElegido) {
+        case "REMERA":
+            let precioremera = 3500
+            let remeraColor = ConsultarColor();
+            let remeraTalle = ConsultarTalle();
+            let remeraCantidad = ConsultarCantidad(articuloElegido);
+            console.log("USTED ELIJIO COMPRAR: " + remeraCantidad + " " + articuloElegido + " COLOR: " + remeraColor + " TALLE: " + remeraTalle);
+            let remeraFormaPago = ConsultarFormaPago();
+            let remeraMonto = CalcularMonto(precioremera,remeraCantidad);
+            if (remeraFormaPago == 1 || remeraFormaPago == 2) {
+                alert("EL MONTO FINAL A ABONAR ES: " + "$" + remeraMonto);
+                console.log("EL MONTO FINAL A ABONAR ES: " + "$" + remeraMonto);
                 alert("MUCHAS GRACIAS POR ELEJIRNOS");
-            }
-            else if (zapatillaFormaPago == 3) {
-                let montoPorCuota = calcularCuota(zapatillaMonto);
+                articuloElegido = false;
+        }
+            else if (remeraFormaPago == 3) {
+                let montoPorCuota = calcularCuota(remeraMonto)
                 alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
                 console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
                 alert("MUCHAS GRACIAS POR ELEJIRNOS");
+                articuloElegido = false;
+        }
+            break;
+    
+        case "PANTALON":
+            let preciopantalon = 8200
+            let pantalonColor = ConsultarColor();
+            let pantalonTalle = ConsultarTalle();
+            let pantalonCantidad = ConsultarCantidad(articuloElegido);
+            console.log("USTED ELIJIO COMPRAR: " + pantalonCantidad + " " + articuloElegido + " COLOR: " + pantalonColor + " TALLE: " + pantalonTalle);
+            let pantalonFormaPago = ConsultarFormaPago();
+            let pantalonMonto = CalcularMonto(preciopantalon,pantalonCantidad);
+            if (pantalonFormaPago == 1 || pantalonFormaPago == 2) {
+                alert("EL MONTO FINAL A ABONAR ES: " + "$" + pantalonMonto);
+                console.log("EL MONTO FINAL A ABONAR ES: " + "$" + pantalonMonto);
+                alert("MUCHAS GRACIAS POR ELEJIRNOS");
+                articuloElegido = false;
 
-            }
-            break;  
-            
-    default:
+        }
+            else if (pantalonFormaPago == 3) {
+                let montoPorCuota = calcularCuota(pantalonMonto)
+                alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+                console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+                alert("MUCHAS GRACIAS POR ELEJIRNOS");
+                articuloElegido = false;
 
-        break;
-}
+        }
+            break;
+    
+        case "ZAPATILLA":
+                let zapatillaPrecio = 15000
+                let zapatillaColor = ConsultarColor();
+                let zapatillaTalle = ConsultarTalle();
+                let zapatillaCantidad = ConsultarCantidad(articuloElegido);
+                console.log("USTED ELIJIO COMPRAR: " + zapatillaCantidad + " " + articuloElegido + " COLOR: " + zapatillaColor + " TALLE: " + zapatillaTalle);
+                let zapatillaFormaPago = ConsultarFormaPago();
+                let zapatillaMonto = CalcularMonto(zapatillaPrecio,zapatillaCantidad);
+                if (zapatillaFormaPago == 1 || zapatillaFormaPago == 2) {
+                    alert("EL MONTO FINAL A ABONAR ES: " + "$" + zapatillaMonto);
+                    console.log("EL MONTO FINAL A ABONAR ES: " + "$" + zapatillaMonto);
+                    alert("MUCHAS GRACIAS POR ELEJIRNOS");
+                    articuloElegido = false;
 
+                }
+                else if (zapatillaFormaPago == 3) {
+                    let montoPorCuota = calcularCuota(zapatillaMonto);
+                    alert("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+                    console.log("EL VALOR DE CADA CUOTA ES: " + "$" + montoPorCuota);
+                    alert("MUCHAS GRACIAS POR ELEJIRNOS");
+                    articuloElegido = false;
+    
+                }
+                break;  
+                
+        default:
+    
+            break;
+    }
+    
+} while (articuloElegido === "REMERA" || articuloElegido == "PANTALON" || articuloElegido == "ZAPATILLA")
 
 function ConsultarTalle () {
     let talle = prompt("INGRESE EL TALLE DE PREFERENCIA: (S,M,L,XL,XXL)");
@@ -88,7 +99,6 @@ function ConsultarTalle () {
 
 function ConsultarColor () {
     let color = parseInt(prompt("INGRESE EL NUMERO DEL COLOR QUE DESEA COMPRAR: \n1) NEGRO \n 2) AZUL \n 3) ROJO \n 4) ROSA \n 5) BLANCO"))
-
         if (color == 1) {
             color = "NEGRO";
         }
