@@ -1,3 +1,4 @@
+
 let articuloElegido = prompt("INGRESE EL NUMERO DEL ARTICULO QUE DESEA COMPRAR: \n 1) REMERA \n 2) PANTALON \n 3) ZAPATILLA");
 
 if (articuloElegido == 1) {
