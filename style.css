@@ -1,0 +1,27 @@
+
+.card{
+    text-align: center;
+    font-size: 15px;
+    margin: 10px auto;
+    border-radius: 10px;
+    background:#fff;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+}
+
+.card-img {
+    width: 10rem;
+    padding: 5px;
+    justify-content: center;
+    align-self: center;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+}
+
+.form-control {
+    text-align: center;
+    margin: 8px auto;
+}
