@@ -1,58 +1,56 @@
-const contenedorProductos = document.getElementById("contenedorProductos")
-
 const productos = [
 
     {
-        id: 01,
+        id: "1",
         nombre: "REMERA CELESTE",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_celeste.png",
         precio: 4100
     },
     {
-        id: 02,
+        id: "2",
         nombre: "REMERA AZUL",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_azul.png",
         precio: 4100,
     },
     {
-        id: 03,
+        id: "3",
         nombre: "REMERA ROJA",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_roja.png",
         precio: 4100,
     },
     {
-        id: 04,
+        id: "4",
         nombre: "REMERA AMARILLA",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_amarilla.png",
         precio: 4100,
     },
     {
-        id: 05,
+        id: "5",
         nombre: "REMERA BLANCA",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_blanca.png",
         precio: 4100,
     },
     {
-        id: 06,
+        id: "6",
         nombre: "REMERA NEGRA",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_negra.png",
         precio: 4100,
     },
     {
-        id: 07,
+        id: "7",
         nombre: "REMERA ROSA",
         marca: "TOMMY HILFIGER",
         imagen: "../img/remera_tommy_rosa.png",
         precio: 4100,
     },
     {
-        id: 08,
+        id: "8",
         nombre: "ZAPATILLA CONVERSE",
         marca: "CONVERSE",
         imagen: "../img/zapatilla_converse.png",
@@ -61,29 +59,67 @@ const productos = [
 
 ]
 
+const contenedorProductos = document.getElementById("home-productos")
+let btnsComprar = document.querySelectorAll(".btn-comprar")
+
 let carrito = []
 
-productos.forEach((producto) => {
+function cargarProductos() {
+
+    contenedorProductos.innerHTML = "";
+
+    productos.forEach((producto) => {
     
-    const contenedor = document.createElement("div")
-    contenedor.className = "col"
-    contenedor.innerHTML = `
-    <div class="card" style="width: 18rem;">
-        <img src=${producto.imagen} class="card-img" alt="imgProducto">
-        <div class="card-body">
-            <h5 class="card-title">${producto.nombre}</h5>
-            <p>MARCA: ${producto.marca}</p>
-            <p>DISPONIBLE EN TALLE S,M,L,XL</p>
-            <h3>$${producto.precio}</h3>
-            <input id="cantidad" type="text" class="form-control" placeholder="INGRESE CANTIDAD">
-            <button class="btn btn-primary btnComprarProducto">AÑADIR AL CARRITO</button>
+        const contenedor = document.createElement("div")
+        contenedor.innerHTML = `
+        <div class="card" style="width: 18rem;">
+            <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+            <div class="producto-info">
+                <h5 class="producto-nombre">${producto.nombre}</h5>
+                <p class="producto-marca">${producto.marca}</p>
+                <h3 class="producto-precio">$${producto.precio}</h3>
+                <a href="#" class="btn-comprar" id="${producto.id}">AÑADIR AL CARRITO</a>
+            </div>
         </div>
-    </div>
-    `;
+        `;
+    
+        contenedorProductos.append(contenedor)
+    
+    });  
+    
+    actualizarBtnsComprar()
+}
 
-    contenedorProductos.append(contenedor)
+cargarProductos();
 
-});
+function actualizarBtnsComprar () {
+    btnsComprar = document.querySelectorAll(".btn-comprar")
+
+    btnsComprar.forEach(boton => {
+        boton.addEventListener("click", agregarAlCarrito);
+    });
+}
+
+
+function agregarAlCarrito(e) {
+    const btnId = e.currentTarget.id;
+    const productoEnCarrito = productos.find(producto => producto.id === btnId);
+
+    if(carrito.some(producto => producto.id === btnId)) {
+        const index = carrito.findIndex(producto => producto.id === btnId);
+        carrito[index].cantidad++;
+    } else {
+        productoEnCarrito.cantidad = 1;
+        carrito.push(productoEnCarrito);
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+}
+
+
+
+
 
 
 
