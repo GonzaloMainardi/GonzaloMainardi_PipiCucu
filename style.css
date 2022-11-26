@@ -40,10 +40,7 @@ footer {
     text-align: center;
     padding: 0px 25px;
 }
-.navbar{
-    position: sticky;
-    top: 0;
-}
+
 header{
     background-color:var(--clr-azul);
     color: whitesmoke;
@@ -69,8 +66,9 @@ main{
     border-radius: 10px;
     background:#fff;
     color: black;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
-
 .card-img {
     width: 10rem;
     padding: 5px;
@@ -80,9 +78,10 @@ main{
 
 .contenedor-productos {
     display: grid;
-    grid-template-columns: repeat(4, 0.5fr);
-    gap: 1rem;
-    width: 100vw;
+    grid-template-columns: repeat(4, 0.3fr);
+    gap: 0.5rem;
+    justify-items: center;
+
 }
 
 .producto-info {
@@ -110,6 +109,7 @@ main{
     text-align: center;
     background-color: whitesmoke;
     border-radius: 10px;
+    width: 100vw;
     margin: 20px;
 }
 
@@ -124,11 +124,10 @@ main{
 
 
 .carrito-productos {
-    padding: 15px;
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    justify-content: center;
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5fr;
 }
 
 .carrito-acciones {
